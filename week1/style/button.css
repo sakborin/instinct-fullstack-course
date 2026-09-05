@@ -1,0 +1,50 @@
+.btn-save{
+    color: black;
+    padding: 10px;
+    background-color: #92ff53;
+    border: 0;
+    border-radius: 5px;
+    font-weight:bold;
+}
+
+.btn-delete{
+    color: black;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: red;
+    font-weight: bold;
+}
+
+#card{
+    width:350px;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px, solid, grey;
+    margin:10px;
+}
+
+/* element selector */
+
+button:first-child{
+    background-color: blue;
+}
+button:nth-child(2){
+    background-color: purple;
+}
+button:nth-child(3){
+    background-color: aqua;
+    padding:10px;
+    border-radius: 5px;
+    border: 0px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify ;
+    font-size: 20px !important; 
+    /* Important apply to all even you have set it in class */
+}   

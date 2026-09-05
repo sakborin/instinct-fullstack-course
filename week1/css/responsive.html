@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Css Responsive</title>
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        section h2{
+            text-align: center;
+        }
+
+        article {
+            display: inline-block;
+            width: calc(100%/3);
+            background-color: green;
+            color: white;
+            border: 1px dotted grey;
+        }
+        section div{
+            display: flex;
+        }
+        @media screen and (min-width:200px) and (max-width: 500px){
+            article{
+                width: 100%;
+                background-color: brown;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <section class="projects">
+            <h2>My Project</h2>
+            <article>
+                <h3>Proforlio</h3>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus cupiditate totam blanditiis!
+                    Sit molestias placeat illo exercitationem consectetur nisi sequi ut, eum eligendi veritatis
+                    temporibus eveniet, possimus assumenda iste! Deleniti?</p>
+            </article>
+            <article>
+                <h3>Task Management</h3>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus cupiditate totam blanditiis!
+                    Sit molestias placeat illo exercitationem consectetur nisi sequi ut, eum eligendi veritatis
+                    temporibus eveniet, possimus assumenda iste! Deleniti?</p>
+            </article>
+            <article>
+                <h3>Payroll System</h3>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus cupiditate totam blanditiis!
+                    Sit molestias placeat illo exercitationem consectetur nisi sequi ut, eum eligendi veritatis
+                    temporibus eveniet, possimus assumenda iste! Deleniti?</p>
+            </article>
+        </section>
+    </div>
+</body>
+
+</html>

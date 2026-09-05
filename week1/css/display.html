@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display-text</title>
+    <style>
+        span{
+            display: block;
+        }
+
+        p{
+            display: inline-block;
+            width: 200px;
+            background-color: brown;
+            padding: 10px;
+        }
+
+        nav ul{
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li{
+            list-style-type: none;
+            padding: 10px 20px;
+            background-color: brown;
+        }
+
+        nav li:hover{
+            background-color: grey;
+        }
+        nav a{
+            text-decoration: none;
+        }
+
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .box-green{
+            background-color: green;
+        }
+        .box-yellow{
+            background-color: yellow;
+            position: relative;
+            left: 300px;
+        }
+        .box-purple{
+            background-color: purple;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Inline  -->
+    <span> Apple </span>
+    <span> Orange </span>
+    <span> Coconut </span>
+
+    <!-- Block  -->
+    <p>Apple</p>
+    <p>Coconut</p>
+    <p>Orange</p>
+
+    <!-- Flex  -->
+    <nav>
+        <ul>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                 <a href="">Contact US</a>
+            </li>
+    
+        </ul>
+    </nav>
+
+    <!-- Position -->
+     <div>
+        <div class="box-green">1</div>
+        <div class="box-yellow">2</div>
+        <div class="box-purple">3</div>
+     </div>
+</body>
+</html>

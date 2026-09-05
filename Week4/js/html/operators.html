@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Use Operators</title>
+        <script src="/Week4/js/javascript/operators.js"></script>
+    </head>
+    <body>
+        <br>
+        <br>
+        <button onclick="decreaseNumber()"> - </button>
+        <p id="displayNumber"></p>
+        <button onclick="increaseNumber()">+</button>
+    </body>
+
+    <script>
+        // let keyword, value can change
+        let number = 0; 
+        document.getElementById('displayNumber').innerText = number;
+        
+        //Increasement
+        function increaseNumber(){
+            number += 1; 
+            document.getElementById('displayNumber').innerText = number;
+        }
+
+        //Decreasement 
+        function decreaseNumber(){
+            number -= 1;
+            document.getElementById('displayNumber').innerText = number;
+        }
+
+        const exchangeRate = 4000;
+        let amountKHR = 40000; 
+        let amountUSD = amountKHR / exchangeRate; 
+        console.log('Amount in USD =', amountUSD)
+    </script>
+</html>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fresh Coffee</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f1eb;
+      color: #292621;
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      padding: 28px 6%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      z-index: 20;
+
+      color: white;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+
+      list-style: none;
+
+      font-size: 13px;
+    }
+
+    nav ul a {
+      position: relative;
+    }
+
+    nav ul a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: -6px;
+
+      width: 0;
+      height: 1px;
+
+      background: white;
+
+      transition: width .3s ease;
+    }
+
+    nav ul a:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      border: 1px solid rgba(255,255,255,.75);
+
+      padding: 11px 20px;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+
+      transition:
+        background .3s ease,
+        color .3s ease;
+    }
+
+    .nav-btn:hover {
+      background: white;
+      color: #292621;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      height: 100vh;
+      min-height: 650px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      padding: 0 8%;
+
+      color: white;
+
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      z-index: -2;
+
+      animation: heroZoom 12s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+
+      from {
+        transform: scale(1.08);
+      }
+
+      to {
+        transform: scale(1);
+      }
+
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(25,20,15,.68),
+          rgba(25,20,15,.15)
+        );
+
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 650px;
+
+      animation:
+        heroText 1.1s ease forwards;
+    }
+
+    @keyframes heroText {
+
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(60px, 8vw, 115px);
+
+      line-height: .95;
+
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 430px;
+
+      margin-top: 30px;
+
+      line-height: 1.7;
+
+      font-size: 15px;
+
+      color: rgba(255,255,255,.88);
+    }
+
+    .hero-btn {
+      display: inline-block;
+
+      margin-top: 35px;
+
+      padding: 14px 27px;
+
+      background: white;
+
+      color: #292621;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+
+      transition:
+        transform .3s ease,
+        background .3s ease;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+
+      background: #eee8df;
+    }
+
+
+    /* =========================================
+       GENERAL SECTIONS
+    ========================================= */
+
+    .section {
+      padding: 130px 8%;
+    }
+
+    .section-label {
+      font-size: 11px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+
+      color: #8c7763;
+
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(40px, 5vw, 65px);
+
+      line-height: 1;
+
+      font-weight: 500;
+    }
+
+
+    /* =========================================
+       OUR STORY
+    ========================================= */
+
+    .about {
+      max-width: 1300px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 100px;
+
+      align-items: center;
+    }
+
+    .about-image-wrapper {
+      overflow: hidden;
+    }
+
+    .about img {
+      height: 600px;
+
+      object-fit: cover;
+
+      transition:
+        transform .8s ease;
+    }
+
+    .about-image-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-text {
+      max-width: 480px;
+    }
+
+    .about-text p {
+      margin-top: 30px;
+
+      line-height: 1.8;
+
+      color: #6d655d;
+
+      font-size: 15px;
+    }
+
+    .about-link {
+      display: inline-block;
+
+      margin-top: 30px;
+
+      font-size: 13px;
+
+      border-bottom:
+        1px solid #8c7763;
+
+      padding-bottom: 5px;
+
+      color: #5d5147;
+    }
+
+
+    /* =========================================
+       MENU
+    ========================================= */
+
+    .menu {
+      background: #e8e0d6;
+    }
+
+    .menu-header {
+      max-width: 1300px;
+
+      margin:
+        0 auto 55px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+    }
+
+    .menu-subtitle {
+      font-size: 13px;
+
+      color: #8c7763;
+
+      max-width: 180px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================
+       MENU GRID
+       5 COLUMNS / 2 ROWS
+    ========================================= */
+
+    .menu-grid {
+      max-width: 1300px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 40px 20px;
+    }
+
+
+    /* =========================================
+       DRINK CARD
+    ========================================= */
+
+    .drink {
+      min-width: 0;
+
+      transition:
+        transform .35s ease;
+    }
+
+    .drink:hover {
+      transform: translateY(-5px);
+    }
+
+
+    /* =========================================
+       DRINK IMAGE
+    ========================================= */
+
+    .drink-image-wrapper {
+      width: 100%;
+
+      aspect-ratio: 4 / 5;
+
+      overflow: hidden;
+
+      background: #ddd5cc;
+    }
+
+    .drink img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .6s ease;
+    }
+
+    .drink:hover img {
+      transform: scale(1.04);
+    }
+
+
+    /* =========================================
+       DRINK NAME + PRICE
+    ========================================= */
+
+    .drink-info {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: baseline;
+
+      gap: 10px;
+
+      padding-top: 15px;
+    }
+
+    .drink-name {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 18px;
+
+      line-height: 1.2;
+    }
+
+    .price {
+      font-size: 12px;
+
+      color: #8c7763;
+
+      white-space: nowrap;
+    }
+
+
+    /* =========================================
+       QUOTE
+    ========================================= */
+
+    .quote {
+      text-align: center;
+
+      padding:
+        180px 10%;
+    }
+
+    .quote h2 {
+      max-width: 850px;
+
+      margin: auto;
+    }
+
+    .quote span {
+      display: block;
+
+      margin-top: 30px;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      color: #8c7763;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: #292621;
+
+      color: #f5f1eb;
+
+      padding:
+        70px 8% 30px;
+    }
+
+    .footer-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+    }
+
+    footer h3 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 38px;
+
+      font-weight: 500;
+    }
+
+    footer p {
+      color: #aaa29a;
+
+      margin-top: 15px;
+
+      line-height: 1.7;
+
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 50px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+
+      color: #f5f1eb;
+
+      transition:
+        color .3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #bca991;
+    }
+
+    .copyright {
+      border-top:
+        1px solid #49443f;
+
+      margin-top: 70px;
+
+      padding-top: 20px;
+
+      font-size: 11px;
+
+      color: #817a73;
+    }
+
+
+    /* =========================================
+       TABLET
+    ========================================= */
+
+    @media (max-width: 1000px) {
+
+      .menu-grid {
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        gap: 35px 18px;
+      }
+
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 650px) {
+
+      /* Navigation */
+
+      nav {
+        padding: 23px 7%;
+      }
+
+      nav ul,
+      .nav-btn {
+        display: none;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+
+      /* Hero */
+
+      .hero {
+        padding: 0 7%;
+
+        min-height: 650px;
+      }
+
+      h1 {
+        font-size:
+          clamp(55px, 16vw, 85px);
+      }
+
+      .hero p {
+        font-size: 14px;
+
+        max-width: 350px;
+      }
+
+
+      /* Sections */
+
+      .section {
+        padding: 90px 7%;
+      }
+
+
+      /* About */
+
+      .about {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+      }
+
+      .about img {
+        height: 450px;
+      }
+
+
+      /* Menu */
+
+      .menu-header {
+        display: block;
+
+        margin-bottom: 45px;
+      }
+
+      .menu-subtitle {
+        margin-top: 15px;
+      }
+
+      .menu-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 30px 15px;
+      }
+
+      .drink-name {
+        font-size: 17px;
+      }
+
+      .price {
+        font-size: 11px;
+      }
+
+
+      /* Quote */
+
+      .quote {
+        padding:
+          120px 8%;
+      }
+
+
+      /* Footer */
+
+      .footer-top {
+        flex-direction: column;
+
+        gap: 40px;
+      }
+
+      .footer-links {
+        gap: 25px;
+
+        flex-wrap: wrap;
+      }
+
+      .copyright {
+        margin-top: 50px;
+      }
+
+    }
+
+
+    /* =========================================
+       SMALL PHONE
+    ========================================= */
+
+    @media (max-width: 400px) {
+
+      .menu-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 25px 12px;
+      }
+
+      .drink-name {
+        font-size: 15px;
+      }
+
+      .price {
+        font-size: 10px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       NAVIGATION
+  ========================================= -->
+
+  <nav>
+
+    <div class="logo">
+      FRESH COFFEE
+    </div>
+
+
+    <ul>
+
+      <li>
+        <a href="#home">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="#story">
+          Our Story
+        </a>
+      </li>
+
+      <li>
+        <a href="#menu">
+          Menu
+        </a>
+      </li>
+
+      <li>
+        <a href="#visit">
+          Visit
+        </a>
+      </li>
+
+    </ul>
+
+
+    <a
+      href="#menu"
+      class="nav-btn"
+    >
+      Order Coffee
+    </a>
+
+  </nav>
+
+
+
+  <!-- =========================================
+       HERO
+  ========================================= -->
+
+  <section
+    class="hero"
+    id="home"
+  >
+
+    <img
+      class="hero-image"
+      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2000&q=85"
+      alt="Coffee shop"
+    >
+
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Coffee · Matcha · Moments
+      </div>
+
+
+      <h1>
+        Slow down.<br>
+        Have coffee.
+      </h1>
+
+
+      <p>
+        Thoughtfully brewed coffee in a warm,
+        quiet space made for good conversations
+        and slow mornings.
+      </p>
+
+
+      <a
+        href="#menu"
+        class="hero-btn"
+      >
+        Explore our menu →
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       OUR STORY
+  ========================================= -->
+
+  <section
+    class="section"
+    id="story"
+  >
+
+    <div class="about">
+
+
+      <div class="about-image-wrapper">
+
+        <img
+          src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=85"
+          alt="Fresh Coffee interior"
+        >
+
+      </div>
+
+
+      <div class="about-text">
+
+        <div class="section-label">
+          Our Story
+        </div>
+
+
+        <h2>
+          Simple coffee.<br>
+          Made beautifully.
+        </h2>
+
+
+        <p>
+          We believe coffee doesn't need to be complicated.
+          Just good beans, fresh ingredients and a place
+          where you can take a moment for yourself.
+        </p>
+
+
+        <a
+          href="#"
+          class="about-link"
+        >
+          Discover our story →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       MENU
+  ========================================= -->
+
+  <section
+    class="section menu"
+    id="menu"
+  >
+
+
+    <div class="menu-header">
+
+
+      <div>
+
+        <div class="section-label">
+          From our bar
+        </div>
+
+        <h2>
+          Our menu.
+        </h2>
+
+      </div>
+
+
+      <p class="menu-subtitle">
+        Crafted fresh,<br>
+        served simply.
+      </p>
+
+    </div>
+
+
+
+    <div class="menu-grid">
+
+
+      <!-- 01 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=85"
+            alt="Espresso"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Espresso
+          </span>
+
+          <span class="price">
+            $2.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 02 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=700&q=85"
+            alt="Matcha Latte"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Matcha Latte
+          </span>
+
+          <span class="price">
+            $3.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 03 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85"
+            alt="Iced Latte"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Iced Latte
+          </span>
+
+          <span class="price">
+            $3.00
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 04 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=700&q=85"
+            alt="Cappuccino"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Cappuccino
+          </span>
+
+          <span class="price">
+            $3.00
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 05 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=85"
+            alt="Cold Brew"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Cold Brew
+          </span>
+
+          <span class="price">
+            $3.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 06 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=85"
+            alt="Green Tea"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Green Tea
+          </span>
+
+          <span class="price">
+            $2.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 07 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=700&q=85"
+            alt="Coconut Latte"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Coconut Latte
+          </span>
+
+          <span class="price">
+            $3.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 08 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1578374173706-ccf04f4e2f1b?auto=format&fit=crop&w=700&q=85"
+            alt="Mocha"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Mocha
+          </span>
+
+          <span class="price">
+            $3.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 09 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=700&q=85"
+            alt="Americano"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Americano
+          </span>
+
+          <span class="price">
+            $2.50
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 10 -->
+
+      <div class="drink">
+
+        <div class="drink-image-wrapper">
+
+          <img
+            src="https://images.unsplash.com/photo-1542990253-0d0f5be5f6b9?auto=format&fit=crop&w=700&q=85"
+            alt="Hot Chocolate"
+          >
+
+        </div>
+
+
+        <div class="drink-info">
+
+          <span class="drink-name">
+            Hot Chocolate
+          </span>
+
+          <span class="price">
+            $3.00
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       QUOTE
+  ========================================= -->
+
+  <section class="quote">
+
+    <h2>
+      "Coffee is not just a drink.
+      It's a little pause in the middle
+      of the day."
+    </h2>
+
+
+    <span>
+      FRESH COFFEE · PHNOM PENH
+    </span>
+
+  </section>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
+  <footer id="visit">
+
+
+    <div class="footer-top">
+
+
+      <div>
+
+        <h3>
+          Fresh Coffee
+        </h3>
+
+
+        <p>
+          Good coffee.<br>
+          Good people.<br>
+          Good moments.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#">
+          Instagram
+        </a>
+
+        <a href="#">
+          Facebook
+        </a>
+
+        <a href="#">
+          Location
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 Fresh Coffee.
+      Phnom Penh, Cambodia.
+
+    </div>
+
+
+  </footer>
+
+
+</body>
+
+</html>

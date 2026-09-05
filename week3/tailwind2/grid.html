@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <!-- Grid Column -->
+    <div class="grid grid-cols-3 gap-4">
+        <div class="... bg-blue-400">01</div>
+        <div class="... bg-blue-400">02</div>
+        <div class="... bg-blue-400">03</div>
+        <div class="... bg-blue-400">04</div>
+        <div class="... bg-blue-400">05</div>
+        <div class="... bg-blue-400">06</div>
+        <div class="... bg-blue-400">07</div>
+    </div>
+
+    <!-- col-span = merge column -->
+    <!-- col-row = merge row  -->
+    <!-- ex:grid-col-3 : men nei tha muy row men 3 columns -->
+    <!-- ex:grid-row-3 : -->
+
+    <br>    
+    <br>
+
+    <!-- Grid Row  -->
+    <div class="grid grid-flow-col grid-rows-3 gap-4">
+        <div class="row-span-3 ... bg-yellow-500">01</div>
+        <div class="col-span-2 ... bg-yellow-500">02</div>
+        <div class="col-span-2 row-span-2 ... bg-yellow-500">03</div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="grid gap-4 grid-row-3 grid-flow-col">
+        <div class="bg-yellow-400 row-span-3">01</div>
+        <div class="bg-blue-400">02</div>
+        <div class="bg-green-400">03</div>
+    </div>
+</body>
+
+</html>

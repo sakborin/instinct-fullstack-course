@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Use Hover style with tailwind</title>
+
+</head>
+<body>
+    <button class="bg-blue-300 rounded-sm ps-[10px] pe-[10px]"> Save </button> <!--- padding right and left -->
+    <button class="bg-blue-300 rounded-sm px-[10px]"> Save </button> <!--- padding both right and left -->
+    <button class="bg-blue-300 rounded-sm pt-[10px]"> Save </button> <!--- padding top -->
+    <button class="bg-blue-300 rounded-sm pb-[10px]"> Save </button> <!--- padding buttom -->
+    <button class="bg-blue-300 rounded-sm py-[10px]"> Save </button> <!--- padding both top and buttom -->
+    <button class="bg-blue-300 rounded-sm p-[10px]"> Save </button> <!--- padding all the four side -->
+    <!-- Use hover  -->
+    <button class="bg-blue-300 rounded-sm p-[10px] hover:bg-blue-700 hover:text-white hover:rounded-lg"> Save </button>
+    <!-- Focus -->
+    <button class="bg-blue-300 rounded-sm p-[10px] focus:bg-blue-700 focus:text-white"> Save </button>
+</body>
+</html>
